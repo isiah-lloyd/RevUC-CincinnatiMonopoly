@@ -1,6 +1,6 @@
 
 $( document ).ready(function () {
-  var canvas = $$('#game');
+  var canvas = $('#game')[0];
   var engine = new BABYLON.Engine(canvas, true);
   var createScene = function() {
     // create a basic BJS Scene object
