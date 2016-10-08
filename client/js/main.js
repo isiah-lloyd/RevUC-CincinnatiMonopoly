@@ -1,5 +1,5 @@
 
-$( document ).ready(function () {
+/*$( document ).ready(function () {
   var canvas = $('#game')[0];
   var engine = new BABYLON.Engine(canvas, true);
   var createScene = function() {
@@ -37,4 +37,12 @@ $( document ).ready(function () {
   window.addEventListener('resize', function() {
     engine.resize();
 });
+});
+*/
+var socket = io.connect('http://localhost:8080');
+$('#host_game').click(function(){
+  socket.emit('hostCreateNewGame');
+});
+socket.on('newGameCreated', function(data){
+  console.log(data);
 });
