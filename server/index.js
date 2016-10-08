@@ -6,7 +6,7 @@ app.use(express.static(path.join(__dirname,'..', 'client')));
 // Create an http server with Node's HTTP module.
 // Pass it the Express application, and listen on port 8080.
 var server = require('http').createServer(app).listen(8080);
-
+var rooms = [];
 // Instantiate Socket.IO hand have it listen on the Express/HTTP server
 var io = require('socket.io').listen(server);
 
@@ -20,12 +20,22 @@ io.on('connection', function (socket) {
   socket.on('hostCreateNewGame', function (data) {
     console.log('User wants to create game');
     // Create a unique Socket.IO Room
-   var thisGameId = ( Math.random() * 100000 ) | 0;
-
+   var thisGameId = Math.floor(Math.random() * 90000) + 10000;
    // Return the Room ID (gameId) and the socket ID (mySocketId) to the browser client
    this.emit('newGameCreated', {gameId: thisGameId, mySocketId: this.id});
-
    // Join the Room and wait for the players
    this.join(thisGameId.toString());
+  });
+  socket.on('playerJoinGame', function (data) {
+    if (io.sockets.adapter.rooms[data.s_gamePIN] === undefined) {
+      console.log('Room: ' + data.s_gamePIN + 'does not exist');
+      console.log(io.sockets.adapter.rooms);
+    }
+    else {
+      console.log('Player: ' + data.s_username + " joined game: " + data.s_gamePIN);
+      data.mySocketId = this.id;
+      this.join(data.s_gamePIN.toString());
+      io.to(data.s_gamePIN.toString()).emit('playerJoinedRoom', data);
+    }
   });
 });

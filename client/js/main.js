@@ -43,6 +43,27 @@ var socket = io.connect('http://localhost:8080');
 $('#host_game').click(function(){
   socket.emit('hostCreateNewGame');
 });
+$('#join_game').click(function () {
+  $('#main_menu').fadeOut();
+  $('#join_form').fadeIn();
+});
+$('#join_button').click(function (){
+  var gamePIN = $('#jf_gameCode').val();
+  var username = $('#jf_username').val();
+  if (gamePIN.toString().length != 5) {
+    console.log("Not a valid Game PIN");
+  }
+  else {
+    socket.emit('playerJoinGame',{s_gamePIN: gamePIN, s_username: username});
+  }
+});
 socket.on('newGameCreated', function(data){
+  console.log(data);
+  $('#main_menu').fadeOut();
+  $('#game_lobby').fadeIn();
+  $('#gl_directions').text('Go to ' + document.domain + '/join and enter the Game PIN to join this game!');
+  $('#gamecode').text('Game PIN: ' + data.gameId);
+});
+socket.on('playerJoinedRoom', function(data){
   console.log(data);
 });
