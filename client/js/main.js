@@ -94,11 +94,14 @@ socket.on('gameStarted', function (data){
     $('#game_viewer').fadeIn();
     $('#game_message').text('We will now decide who goes first.');
     current_player = host_players[data + 1];
-    setTimeout(function(){$('#game_message').text(current_player.username + ', please roll the dice.');socket.emit('alert_player', {player: current_player, inital_turn: true});}, 5000);
+    setTimeout(function(){$('#game_message').text(current_player.username + ', please roll the dice.');socket.emit('alert_player', {player: current_player, inital_turn: true, s_gamePIN: data.s_gamePIN});}, 5000);
   }
   else {
     $('#game_lobby_mobile').fadeOut();
     $('#game_controller').fadeIn();
     $('#status').text('The game is starting soon, please look at the display.');
   }
+});
+socket.on('playersTurn', function (data) {
+  console.log("Yo mofo it's your turn");
 });

@@ -40,4 +40,7 @@ io.on('connection', function (socket) {
   socket.on("playerStartGame", function(data) {
     io.to(data.s_gamePIN.toString()).emit('gameStarted', playersturn);
   });
+  socket.on('alert_player', function (data) {
+    io.to(data.player.id).emit("playersTurn", data);
+  });
 });
