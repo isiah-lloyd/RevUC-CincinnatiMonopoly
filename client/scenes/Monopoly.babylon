@@ -1,0 +1,36 @@
+{"producer":{"name":"Blender","version":"2.78 (sub 0)","exporter_version":"4.6.1","file":"Monopoly.babylon"},
+"autoClear":true,"clearColor":[0.0509,0.0509,0.0509],"ambientColor":[0,0,0],"gravity":[0,-9.81,0],
+"materials":[{"name":"Monopoly.Cube.001","id":"Monopoly.Cube.001","ambient":[0,0,0],"diffuse":[0.8,0.8,0.8],"specular":[1,1,1],"emissive":[0,0,0],"specularPower":64,"alpha":1,"backFaceCulling":true,"checkReadyOnlyOnce":false, 
+"diffuseTexture":{"name":"Monopoly_Cube_001_TEXTURE.jpg","level":1,"hasAlpha":0,"coordinatesMode":0,"uOffset":0,"vOffset":0,"uScale":1,"vScale":1,"uAng":0,"vAng":0,"wAng":0,"wrapU":0,"wrapV":0,"coordinatesIndex":0}},
+{"name":"Monopoly.Material.002","id":"Monopoly.Material.002","ambient":[0.8,0.8,0.8],"diffuse":[0.64,0.64,0.64],"specular":[0.5,0.5,0.5],"emissive":[0,0,0],"specularPower":50,"alpha":1,"backFaceCulling":true,"checkReadyOnlyOnce":false, 
+"diffuseTexture":{"name":"Side Deck.jpg","level":1,"hasAlpha":1,"coordinatesMode":0,"uOffset":0,"vOffset":0,"uScale":1,"vScale":1,"uAng":0,"vAng":0,"wAng":0,"wrapU":1,"wrapV":1,"coordinatesIndex":0}},
+{"name":"Monopoly.Material.001","id":"Monopoly.Material.001","ambient":[0.8,0.8,0.8],"diffuse":[0.64,0.64,0.64],"specular":[0.5,0.5,0.5],"emissive":[0,0,0],"specularPower":50,"alpha":1,"backFaceCulling":true,"checkReadyOnlyOnce":false, 
+"diffuseTexture":{"name":"monopoly_Midsomer_Norton_Radstock_Westfield_Board copy.jpg","level":1,"hasAlpha":1,"coordinatesMode":0,"uOffset":0,"vOffset":0,"uScale":1,"vScale":1,"uAng":0,"vAng":0,"wAng":0,"wrapU":1,"wrapV":1,"coordinatesIndex":0}}],
+"multiMaterials":[],
+"skeletons":[],
+"meshes":[{"name":"Cube.001","id":"Cube.001","materialId":"Monopoly.Cube.001","billboardMode":0,"position":[-1.7858,0.125,1.8649],"rotation":[0,-0.7854,0],"scaling":[0.79,0.125,0.58],"isVisible":true,"freezeWorldMatrix":false,"isEnabled":true,"checkCollisions":false,"receiveShadows":false
+,"positions":[-1,1,-1,-1,-1,1,-1,-1,-1,-1,1,1,1,-1,1,1,1,1,1,-1,-1,1,1,-1,-1,1,1,1,1,-1,1,1,1,-1,1,1,-1,1,-1,1,1,-1]
+,"normals":[-0.5773,0.5773,-0.5773,-0.5773,-0.5773,0.5773,-0.5773,-0.5773,-0.5773,-0.5773,0.5773,0.5773,0.5773,-0.5773,0.5773,0.5773,0.5773,0.5773,0.5773,-0.5773,-0.5773,0.5773,0.5773,-0.5773,-0.5773,0.5773,0.5773,0.5773,0.5773,-0.5773,0.5773,0.5773,0.5773,-0.5773,0.5773,0.5773,-0.5773,0.5773,-0.5773,0.5773,0.5773,-0.5773]
+,"uvs":[0.0155,1,0.0902,0.4424,0.0845,0.5106,0,0,0.1014,0.5014,0.1825,0,0.0945,0.5484,0.1722,1,0.0001,0.9999,0.9999,0.0001,0.9999,0.9999,0.0001,0.9999,0.0001,0.0001,0.9999,0.0001]
+,"indices":[0,1,2,3,4,1,5,6,4,7,2,6,4,2,1,8,9,10,0,3,1,3,5,4,5,7,6,7,0,2,4,6,2,11,12,13]
+,"subMeshes":[{"materialIndex":0,"verticesStart":0,"verticesCount":14,"indexStart":0,"indexCount":36}]
+,"instances":[]}
+,{"name":"Cube","id":"Cube","materialId":"Monopoly.Material.002","billboardMode":0,"position":[1.7908,0.125,-1.8885],"rotation":[0,-0.7854,0],"scaling":[0.79,0.125,0.58],"isVisible":true,"freezeWorldMatrix":false,"isEnabled":true,"checkCollisions":false,"receiveShadows":false
+,"positions":[-1,1,-1,-1,-1,1,-1,-1,-1,-1,1,1,1,-1,1,1,1,1,1,-1,-1,1,1,-1,1,-1,1,-1,-1,-1,-1,-1,1,-1,1,1,1,1,-1,1,1,1,1,-1,1,1,-1,-1,-1,-1,-1,-1,1,1,-1,1,-1,1,1,-1]
+,"normals":[-0.5773,0.5773,-0.5773,-0.5773,-0.5773,0.5773,-0.5773,-0.5773,-0.5773,-0.5773,0.5773,0.5773,0.5773,-0.5773,0.5773,0.5773,0.5773,0.5773,0.5773,-0.5773,-0.5773,0.5773,0.5773,-0.5773,0.5773,-0.5773,0.5773,-0.5773,-0.5773,-0.5773,-0.5773,-0.5773,0.5773,-0.5773,0.5773,0.5773,0.5773,0.5773,-0.5773,0.5773,0.5773,0.5773,0.5773,-0.5773,0.5773,0.5773,-0.5773,-0.5773,-0.5773,-0.5773,-0.5773,-0.5773,0.5773,0.5773,-0.5773,0.5773,-0.5773,0.5773,0.5773,-0.5773]
+,"uvs":[0.0001,0.9665,0.4825,0.411,0.4447,0.4538,0.0004,-0.0241,0.5372,0.4455,0.9983,-0.0241,0.5058,0.5075,0.9999,0.9101,0,0,0,0,0,0,0.0001,0.9999,0.9999,0.0001,0.9999,0.9999,0,0,0,0,0,0,0.0001,0.9999,0.0001,0.0001,0.9999,0.0001]
+,"indices":[0,1,2,3,4,1,5,6,4,7,2,6,8,9,10,11,12,13,0,3,1,3,5,4,5,7,6,7,0,2,14,15,16,17,18,19]
+,"subMeshes":[{"materialIndex":0,"verticesStart":0,"verticesCount":20,"indexStart":0,"indexCount":36}]
+,"instances":[]}
+,{"name":"Plane","id":"Plane","materialId":"Monopoly.Material.001","billboardMode":0,"position":[0,0,0],"rotation":[0,0,0],"scaling":[4.5,1,4.5],"isVisible":true,"freezeWorldMatrix":false,"isEnabled":true,"checkCollisions":false,"receiveShadows":false
+,"positions":[1,0,-1,-1,0,1,-1,0,-1,1,0,1]
+,"normals":[0,1,0,0,1,0,0,1,0,0,1,0]
+,"uvs":[0.9999,0.0001,0.0001,0.9999,0.0001,0.0001,0.9999,0.9999]
+,"indices":[0,1,2,0,3,1]
+,"subMeshes":[{"materialIndex":0,"verticesStart":0,"verticesCount":4,"indexStart":0,"indexCount":6}]
+,"instances":[]}
+],
+"cameras":[{"name":"Camera","id":"Camera","position":[7.4811,5.3437,-6.5076],"rotation":[0.4615,-0.8149,0],"fov":0.8576,"minZ":0.1,"maxZ":100,"speed":1,"inertia":0.9,"checkCollisions":false,"applyGravity":false,"ellipsoid":[0.2,0.9,0.2],"cameraRigMode":0,"interaxial_distance":0.0637,"type":"FreeCamera"}],"activeCamera":"Camera",
+"lights":[{"name":"Lamp","id":"Lamp","type":0,"position":[4.0762,5.9039,1.0055],"intensity":1,"diffuse":[1,1,1],"specular":[1,1,1]}],
+"shadowGenerators":[]
+}

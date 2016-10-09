@@ -38,9 +38,21 @@ io.on('connection', function (socket) {
     }
   });
   socket.on("playerStartGame", function(data) {
-    io.to(data.s_gamePIN.toString()).emit('gameStarted', playersturn);
+    io.to(data.s_gamePIN.toString()).emit('gameStarted', data);
   });
-  socket.on('alert_player', function (data) {
-    io.to(data.player.id).emit("playersTurn", data);
+  socket.on('start_turn', function (data) {
+    console.log(data);
+    io.to(data.player.id.toString()).emit('start_turn', data);
+  });
+  socket.on('updateTurn', function(data){
+    if(data.action == 'roll_dice') {
+      roll_dice_1 = Math.floor(Math.random() * 6) + 1;
+      roll_dice_2 = Math.floor(Math.random() * 6) + 1;
+      total_roll = roll_dice_1 + roll_dice_2;
+      io.to(data.data.s_gamePIN.toString()).emit('updateTurn',{previous_data: data, result: total_roll});
+    }
+  });
+  socket.on('end_turn', function(data){
+    io.to(data.toString()).emit('end_turn');
   });
 });
