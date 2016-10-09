@@ -40,6 +40,9 @@
 });
 */
 var socket = io.connect('http://localhost:8080');
+var player = false;
+var player_data;
+var users;
 $('#host_game').click(function(){
   socket.emit('hostCreateNewGame');
 });
@@ -55,15 +58,47 @@ $('#join_button').click(function (){
   }
   else {
     socket.emit('playerJoinGame',{s_gamePIN: gamePIN, s_username: username});
+    player = true;
   }
 });
+if (player === false){
+  host_players = {};
+}
 socket.on('newGameCreated', function(data){
   console.log(data);
   $('#main_menu').fadeOut();
-  $('#game_lobby').fadeIn();
-  $('#gl_directions').text('Go to ' + document.domain + '/join and enter the Game PIN to join this game!');
+  $('#game_lobby_host').fadeIn();
+  $('#gl_directions').text('Go to ' + document.domain + ' and enter the Game PIN to join this game!');
   $('#gamecode').text('Game PIN: ' + data.gameId);
 });
 socket.on('playerJoinedRoom', function(data){
-  console.log(data);
+  if(player) {
+    player_data = data;
+    $('#gl_directions').text('Waiting for players to connect...');
+    $('#join_form').fadeOut();
+    $('#game_lobby_mobile').fadeIn();
+    $('#game_lobby_mobile').append('<button id="start_game">Start Game</button>');
+    $('#start_game').click(function () {
+      socket.emit('playerStartGame', player_data);
+    });
+  }
+  else {
+    host_players[Object.keys(host_players).length + 1] = {id: data.mySocketId, username: data.s_username, position: 0};
+    $('#gl_playerlist').append('<li>'+data.s_username+'</li>');
+  }
+});
+socket.on('gameStarted', function (data){
+  if(player === false) {
+    console.log("WTF");
+    $('#game_lobby_host').fadeOut();
+    $('#game_viewer').fadeIn();
+    $('#game_message').text('We will now decide who goes first.');
+    current_player = host_players[data + 1];
+    setTimeout(function(){$('#game_message').text(current_player.username + ', please roll the dice.');socket.emit('alert_player', {player: current_player, inital_turn: true});}, 5000);
+  }
+  else {
+    $('#game_lobby_mobile').fadeOut();
+    $('#game_controller').fadeIn();
+    $('#status').text('The game is starting soon, please look at the display.');
+  }
 });
